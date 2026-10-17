@@ -1,0 +1,9 @@
+[package]
+name = "Gun-N-Run"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+avian3d = "0.7"
+bevy = "0.19.1"
+bevy_fps_controller = { version = "19.0.0", features = ["avian"] }

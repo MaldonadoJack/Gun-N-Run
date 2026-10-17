@@ -119,6 +119,62 @@ fn setup(mut commands: Commands, mut window: Query<&mut Window>, assets: Res<Ass
             ..default()
         },
     ));
+
+    commands.spawn(
+        Node {
+            position_type: PositionType::Absolute,
+            left: Val::Percent(50.0),
+            top: Val::Percent(50.0),
+            width: Val::Px(0.0),
+            height: Val::Px(0.0),
+            ..default()
+        })
+        .with_children(|parent| {
+        parent.spawn((
+            Node {
+                position_type: PositionType::Absolute,
+                left: Val::Px(-1.0),
+                top: Val::Px(-20.0),
+                width: Val::Px(2.0),
+                height: Val::Px(12.0),
+                ..default()
+            },
+            BackgroundColor(Color::BLACK),
+        ));
+        parent.spawn((
+            Node {
+                position_type: PositionType::Absolute,
+                left: Val::Px(-1.0),
+                top: Val::Px(8.0),
+                width: Val::Px(2.0),
+                height: Val::Px(12.0),
+                ..default()
+            },
+            BackgroundColor(Color::BLACK),
+        ));
+        parent.spawn((
+            Node {
+                position_type: PositionType::Absolute,
+                left: Val::Px(-20.0),
+                top: Val::Px(-1.0),
+                width: Val::Px(12.0),
+                height: Val::Px(2.0),
+                ..default()
+            },
+            BackgroundColor(Color::BLACK),
+        ));
+        parent.spawn((
+            Node {
+                position_type: PositionType::Absolute,
+                left: Val::Px(8.0),
+                top: Val::Px(-1.0),
+                width: Val::Px(12.0),
+                height: Val::Px(2.0),
+                ..default()
+            },
+            BackgroundColor(Color::BLACK),
+        ));
+    });
 }
 
 fn respawn(mut query: Query<(&mut Transform, &mut LinearVelocity)>) {
